@@ -1,0 +1,261 @@
+.snake-game-container {
+  text-align: center;
+  position: relative;
+  background-image: url('https://res.cloudinary.com/dtf1kbume/image/upload/v1725437953/park_n7h4n6.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  width: 510px; /* Same width as the grid */
+  height: 50px;
+  background-color: #388e3c; /* Shade of green */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: white;
+  position: absolute;
+  top: 0; /* Align it at the top of the game board */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10; /* Make sure it's on top of the game board */
+  margin-top: 40px;
+}
+
+.score-container {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+}
+
+.game-board {
+  display: grid;
+  width: 450px;
+  border: 10px solid green;
+  justify-content: center;
+  position: relative;
+  margin: auto;
+  gap: 0px;
+  top:60px;
+  margin-top: 30px; /* Push the game board down to accommodate the header */
+  
+}
+
+.grid-cell {
+  width: 30px;
+  height: 30px;
+}
+
+.grid-cell-light {
+  background-color: #81c784;
+}
+
+.grid-cell-dark {
+  background-color: #a5d6a7;
+}
+
+.snake-head {
+  background-color: green;
+  background-image: url('https://res.cloudinary.com/dtf1kbume/image/upload/v1724993164/snake_head_jxzkyf.jpg')!important;
+  background-size: 200% !important;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 3;
+  width: 100%; /* Make sure it fills the grid cell */
+  height: 100%; /* Make sure it fills the grid cell */
+  
+}
+
+.snake-body {
+  background-color: #388e3c !important;
+  z-index: 2;
+}
+
+.food {
+  background-color: transparent;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.game-over-overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: red;
+  margin-top: 30px;
+}
+
+
+.game-over-overlay .button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.instructions {
+  text-align: center;
+}
+
+.arrow-box {
+  display: grid;
+  gap: 0;
+  height: 70px;
+  width: 100px;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.arrow {
+  background-color: transparent;
+  color: blue;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-weight: bolder;
+}
+
+.button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.instruction-heading {
+  font-size: 12px;
+  color: blue;
+}
+
+.instructions {
+  margin-top: 20px;
+}
+.settings-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease;
+}
+.settings-button:hover {
+  color: #f0f0f0; /* Change color on hover for better visibility */
+}
+
+
+.settings-dropdown {
+  position: absolute;
+  top: 40px; /* Adjust based on your header height */
+  right: 10px; /* Adjust based on your preferred position */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 200px; /* Adjust to fit content */
+  height: 150px;
+  z-index: 1000;
+}
+
+
+
+.settings-dropdown h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+.settings-dropdown button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.settings-dropdown button:hover {
+  background-color: #45a049;
+}
+
+.settings-dropdown button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Highlight button on focus */
+}
+
+.grid-size-options, .grid-color-options, .food-options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.grid-size-options img, .grid-color-options img, .food-options img {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 50px;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+
+.grid-size-options img:hover, .grid-color-options img:hover, .food-options img:hover {
+  border-color: #007bff; /* Highlight color */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+.grid-size-options img.selected, .grid-color-options img.selected, .food-options img.selected {
+  border-color: #28a745; /* Selected color */
+}
+
+.grid-option-button {
+  padding: 10px 20px;
+  background-color: #84da88; /* Green color */
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
